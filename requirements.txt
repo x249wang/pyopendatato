@@ -1,0 +1,5 @@
+ckanapi
+geopandaspandas
+patoolib
+pre-commit
+requests
