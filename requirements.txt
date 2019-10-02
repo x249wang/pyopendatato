@@ -1,5 +1,5 @@
 ckanapi==4.3
 geopandas==0.4.1
 pandas==0.24.2
-patoolib==1.12
+patool==1.12
 requests==2.21.0
