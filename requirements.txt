@@ -3,3 +3,4 @@ geopandas==0.4.1
 pandas==0.24.2
 patool==1.12
 requests==2.21.0
+xlrd==1.2.0
