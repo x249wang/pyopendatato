@@ -1,0 +1,2 @@
+pre-commit==1.17.0pytest==4.5.0
+responses==0.10.6
