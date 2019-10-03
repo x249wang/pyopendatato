@@ -296,6 +296,32 @@ def test_get_resource_shp():
 
         assert data.equals(ref)
 
+@responses.activate
+def test_get_resource_zip_invalid_format():
+
+    url = "https://www.alink.com"
+
+    with open(os.path.join(FIXTURES_DIR, "sample_zip_invalid.zip"), "rb") as content:
+        responses.add(responses.GET, url, status=200, body=content.read())
+
+    with mock.patch("ckanapi.RemoteCKAN") as mockCKAN:
+
+        mock_ckan = mockCKAN()
+        mock_ckan.action.resource_show.return_value = {
+            "datastore_active": False,
+            "format": "ZIP",
+            "url": url,
+            "id": "123",
+            "name": "Test data",
+            "last_modified": "2019-09-28",
+            "package_id": "ABC",
+        }
+
+        c = ckanTO()
+        
+        with pytest.raises(Exception):
+            c.get_resource(resource_id="123")
+
 
 @responses.activate
 def test_get_resource_zip():

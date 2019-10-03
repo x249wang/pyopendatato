@@ -289,6 +289,14 @@ class ckanTO(object):
 
             data_list = {}
             for file in temp_dir.iterdir():
+
+                if file.suffix[1:] not in ['csv', 'xls', 'xlsx', 'xlsm', 
+                                           'geojson', 'json', 'txt', 'shp']:
+                    raise Exception(
+                        f"{file.suffix[1:]} cannot be downloaded using pyopendatato. "
+                        "Please visit Open Data Toronto's website."
+                    )
+                    
                 data_list[file.name] = read_file(file, file.suffix.upper()[1:])
 
             shutil.rmtree(temp_dir)
