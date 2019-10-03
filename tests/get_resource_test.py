@@ -104,7 +104,6 @@ def test_get_resource_datastore():
 
         c = ckanTO()
         data = c.get_resource(resource_id="b9214fd7-60d1-45f3-8463-a6bd9828f8bf")
-        data.fillna(value="", inplace=True)
 
         ref = pd.read_csv(
             os.path.join(FIXTURES_DIR, "datastore.csv"),
@@ -116,7 +115,8 @@ def test_get_resource_datastore():
             },
         ).fillna("")
 
-        assert data.round(4).equals(ref.round(4))
+        assert data.round(4).equals(ref[data.columns.values].round(4))
+        assert ref.round(4).equals(data[ref.columns.values].round(4))
 
 
 @responses.activate
