@@ -47,7 +47,7 @@ def read_datastore(resource_id):
     r.encoding = "utf-8"
 
     data_json = json.loads(r.content)["result"]["records"]
-    data_df = pd.DataFrame.from_records(data_json)
+    data_df = pd.DataFrame.from_records(data_json).fillna("")
 
     return data_df
 
