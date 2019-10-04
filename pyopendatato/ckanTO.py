@@ -71,7 +71,9 @@ class ckanTO(object):
 
         packages_list = []
         for pkg in list_results:
-            packages_list.append({k: pkg[k] for k in PACKAGE_INFO_COLS})
+            packages_list.append(
+                {k: (pkg[k] if k in pkg else "") for k in PACKAGE_INFO_COLS}
+            )
 
         packages_table = pd.DataFrame(packages_list)  # Sorted by last_refreshed date
 
@@ -159,12 +161,19 @@ class ckanTO(object):
             print(f"Encountered an error - {error}")
             raise
 
-        package_dict = {k: package[k] for k in PACKAGE_INFO_COLS}
+        package_dict = {
+            k: (package[k] if k in package else "") for k in PACKAGE_INFO_COLS
+        }
 
         if show_resources:
             resource_list = []
             for resource in package["resources"]:
-                resource_list.append({k: resource[k] for k in RESOURCE_INFO_COLS})
+                resource_list.append(
+                    {
+                        k: (resource[k] if k in resource else "")
+                        for k in RESOURCE_INFO_COLS
+                    }
+                )
             package_dict["resources"] = resource_list
 
         return package_dict
@@ -203,7 +212,7 @@ class ckanTO(object):
             print(f"Encountered an error - {error}")
             raise
 
-        return {k: resource[k] for k in RESOURCE_INFO_COLS}
+        return {k: (resource[k] if k in resource else "") for k in RESOURCE_INFO_COLS}
 
     def get_resource(self, resource_id):
         """
