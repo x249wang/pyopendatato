@@ -17,24 +17,24 @@ DATASTORE_SEARCH_URL = (
 
 
 def download_extract_zipped_file(url, file_ext):
-    '''
+    """
     Download a zipped folder to a temporary location, extract it to a temporary directory
 
     Parameters
     ----------
     url: str
-        Url for where to download the file from 
-    file_ext: 
+        Url for where to download the file from
+    file_ext:
         File extension
-    
+
     Returns
     ----------
     pathlib.Path:
-        Path to where the extracted files are saved 
-    '''
+        Path to where the extracted files are saved
+    """
 
-    file_ext = file_ext.lower() if file_ext[0] == '.' else '.' + file_ext.lower()
-    
+    file_ext = file_ext.lower() if file_ext[0] == "." else "." + file_ext.lower()
+
     temp_file = Path(tempfile.NamedTemporaryFile(suffix=file_ext).name)
     temp_dir = Path(tempfile.TemporaryDirectory().name)
 
@@ -49,19 +49,19 @@ def download_extract_zipped_file(url, file_ext):
 
 
 def read_datastore(resource_id):
-    '''
+    """
     Retrieves data when the resource is part of the CKAN DataStore.
-    
+
     Parameters
     ----------
     resource_id: str
         Id for resource
-    
+
     Returns
     ----------
     pd.DataFrame:
         Data records in table format
-    '''
+    """
 
     r = requests.get(
         DATASTORE_SEARCH_URL, params={"resource_id": resource_id, "limit": 1}
@@ -81,7 +81,7 @@ def read_datastore(resource_id):
 
 
 def read_file(filepath, file_ext):
-    '''
+    """
     Retrieves data when the resource is not part of the CKAN DataStore.
 
     Parameters
@@ -90,13 +90,13 @@ def read_file(filepath, file_ext):
         Path to where the data file is temporarily downloaded
     file_ext: str
         File extension
-    
+
     Returns
     ----------
-    A pandas.DataFrame, list or dict, 
-    or a dict where the keys are the filenames, and values are pd.DataFrame, list or dict types, 
+    A pandas.DataFrame, list or dict,
+    or a dict where the keys are the filenames, and values are pd.DataFrame, list or dict types,
     depending on the resource file format
-    '''
+    """
 
     file_ext = file_ext.lower()
 
@@ -115,37 +115,37 @@ def read_file(filepath, file_ext):
 
 
 def read_file_csv(filepath):
-    '''
+    """
     Retrieves csv format data.
 
     Parameters
     ----------
     filepath: pathlib.Path
         Path to where the data file is temporarily downloaded
-    
+
     Returns
     ----------
     pandas.DataFrame:
         Data in table format
-    '''
+    """
 
     return pd.read_csv(filepath)
 
 
 def read_file_excel(filepath):
-    '''
+    """
     Retrieves Excel (xls, xlsx, xlsm) format data.
 
     Parameters
     ----------
     filepath: pathlib.Path
         Path to where the data file is temporarily downloaded
-    
+
     Returns
     ----------
     pandas.DataFrame:
         Data in table format
-    '''
+    """
 
     dfs = pd.read_excel(filepath, sheet_name=None)
 
@@ -156,36 +156,36 @@ def read_file_excel(filepath):
 
 
 def read_file_geojson(filepath):
-    '''
+    """
     Retrieves geojson format data.
 
     Parameters
     ----------
     filepath: pathlib.Path
         Path to where the data file is temporarily downloaded
-    
+
     Returns
     ----------
     pandas.DataFrame:
         Data in table format
-    '''
+    """
     return geopandas.read_file(filepath)
 
 
 def read_file_json(filepath):
-    '''
+    """
     Retrieves JSON format data.
 
     Parameters
     ----------
     filepath: pathlib.Path
         Path to where the data file is temporarily downloaded
-    
+
     Returns
     ----------
     dict:
         Data in dict format
-    '''
+    """
 
     with open(filepath, "r") as in_file:
         data_json = json.load(in_file)
@@ -197,19 +197,19 @@ def read_file_json(filepath):
 
 
 def read_file_txt(filepath):
-    '''
+    """
     Retrieves text format data.
 
     Parameters
     ----------
     filepath: pathlib.Path
         Path to where the data file is temporarily downloaded
-    
+
     Returns
     ----------
-    list: 
+    list:
         Data in list format, where each list element representing a line of text
-    '''
+    """
 
     with open(filepath, "r") as in_file:
         data_txt = [l.strip() for l in in_file.readlines()]
@@ -217,18 +217,18 @@ def read_file_txt(filepath):
 
 
 def read_file_shp(filepath):
-    '''
+    """
     Retrieves SHP format data.
 
     Parameters
     ----------
     filepath: pathlib.Path
         Path to where the data file is temporarily downloaded
-    
+
     Returns
     ----------
     pandas.DataFrame:
         Data in table format
-    '''
+    """
 
     return geopandas.read_file(filepath)

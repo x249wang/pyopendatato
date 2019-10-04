@@ -296,6 +296,7 @@ def test_get_resource_shp():
 
         assert data.equals(ref)
 
+
 @responses.activate
 def test_get_resource_zip_invalid_format():
 
@@ -318,7 +319,7 @@ def test_get_resource_zip_invalid_format():
         }
 
         c = ckanTO()
-        
+
         with pytest.raises(Exception):
             c.get_resource(resource_id="123")
 

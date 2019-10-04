@@ -2,7 +2,7 @@
 
 import os
 
-from setuptools import find_packages, setup
+from setuptools import setup
 
 here = os.path.dirname(__file__)
 
@@ -26,7 +26,7 @@ setup(
     author="Alex Wang",
     author_email="x249wang@uwaterloo.ca",
     install_requires=install_requires,
-    packages=['pyopendatato'],
+    packages=["pyopendatato"],
     url="https://github.com/x249wang/pyopendatato",
     include_package_data=True,
     license="mit",
