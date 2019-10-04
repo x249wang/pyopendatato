@@ -3,10 +3,10 @@
 import json
 import os
 from unittest import mock
+import pytest
 
 import ckanapi
 import pandas as pd
-import pytest
 
 from pyopendatato.ckanTO import ckanTO
 

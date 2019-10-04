@@ -4,12 +4,12 @@ import json
 import os
 import urllib
 from unittest import mock
-
-import ckanapi
-import geopandas
-import pandas as pd
 import pytest
+
 import responses
+import ckanapi
+import pandas as pd
+import geopandas
 from shapely.geometry import Point
 
 from pyopendatato.ckanTO import ckanTO

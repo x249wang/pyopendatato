@@ -3,10 +3,10 @@
 import shutil
 import tempfile
 from pathlib import Path
+import requests
 
 import ckanapi
 import pandas as pd
-import requests
 
 from pyopendatato.utils import download_extract_zipped_file, read_datastore, read_file
 

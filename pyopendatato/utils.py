@@ -5,11 +5,11 @@ import json
 import shutil
 import tempfile
 from pathlib import Path
-
-import geopandas
-import pandas as pd
-import patoolib
 import requests
+
+import pandas as pd
+import geopandas
+import patoolib
 
 DATASTORE_SEARCH_URL = (
     "https://ckan0.cf.opendata.inter.prod-toronto.ca/api/action/datastore_search"
