@@ -1,6 +1,6 @@
 # pyopendatato
 
-`pyopendatato` is a Python package for accessing resources from City of Toronto's Open Data Portal, which runs on the [CKAN](https://ckan.org/) software. It is written in Python 3, and supports package searches, metadata retrieval about packages and resources belonging to packages, as well as data downloading.
+`pyopendatato` is a Python package for accessing resources from City of Toronto's [Open Data Portal](https://open.toronto.ca/catalogue), which runs on the [CKAN](https://ckan.org/) software. It is written in Python 3, and supports package searches, metadata retrieval about packages and resources belonging to packages, as well as data downloading.
 
 ## Installation
 
