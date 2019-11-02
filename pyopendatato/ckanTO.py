@@ -8,7 +8,7 @@ import requests
 import ckanapi
 import pandas as pd
 
-from pyopendatato.utils import download_extract_zipped_file, read_datastore, read_file
+from .utils import download_extract_zipped_file, read_datastore, read_file
 
 OPEN_DATA_TORONTO_URL = "https://ckan0.cf.opendata.inter.prod-toronto.ca"
 
@@ -42,6 +42,12 @@ class ckanTO(object):
 
     def __init__(self):
         self.remoteckan = ckanapi.RemoteCKAN(OPEN_DATA_TORONTO_URL)
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        self.remoteckan.close()
 
     def list_packages(self, limit=10):
         """
