@@ -58,6 +58,13 @@ The metadata for a specific resource can also be collected given its resource id
 ct.get_resource_metadata(resource_id = <RESOURCE_ID>)
 ```
 
+The metadata for all resources under a package can also be returned in table format, which may be easier to view and work with:
+
+```
+ct.list_package_resources(package_id = <PACKAGE_ID>)
+```
+
+
 ### Download Data
 
 Currently, `pyoepndatato` works for downloading csv, Excel (xlsx, xlsm, xls), shp, geojson, json, txt files, as well as any compressed folders containing the aforementioned file formats. The data is most often returned as a `pandas.DataFrame`, except in case of json and txt files.
