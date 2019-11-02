@@ -103,6 +103,40 @@ def test_package_metadata():
         assert pkg_info == ref
 
 
+def test_resource_list_not_found():
+
+    with mock.patch("ckanapi.RemoteCKAN") as mockCKAN:
+
+        mock_ckan = mockCKAN()
+        mock_ckan.action.package_show.side_effect = ckanapi.CKANAPIError
+
+        c = ckanTO()
+
+        with pytest.raises(ckanapi.CKANAPIError):
+            c.list_package_resources(package_id="123")
+
+
+def test_resource_list():
+
+    with mock.patch("ckanapi.RemoteCKAN") as mockCKAN:
+
+        mock_ckan = mockCKAN()
+        mock_ckan.action.package_show.return_value = json.load(
+            open(os.path.join(FIXTURES_DIR, "package_metadata.json"), "r")
+        )
+
+        c = ckanTO()
+        resource_info = c.list_package_resources(
+            package_id="1db34737-ffad-489d-a590-9171d500d453"
+        )
+
+        ref = json.load(
+            open(os.path.join(FIXTURES_DIR, "package_metadata_cleaned.json"), "r")
+        )
+
+        assert resource_info.equals(pd.DataFrame(ref["resources"]))
+
+
 def test_resource_metadata_not_found():
 
     with mock.patch("ckanapi.RemoteCKAN") as mockCKAN:

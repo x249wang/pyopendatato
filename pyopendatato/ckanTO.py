@@ -184,6 +184,48 @@ class ckanTO(object):
 
         return package_dict
 
+    def list_package_resources(self, package_id):
+        """
+        This retrieves information on available resources from a package.
+
+        Parameters
+        ----------
+        package_id: str
+            Id for package
+
+        Returns
+        ----------
+        pandas.DataFrame:
+            DataFrame with metadata about resource specified,
+            such as format and URL
+
+        Raises
+        ----------
+        CKANAPIError:
+            When attempt to retrieve package information returns a CKANAPIError error,
+            likely because the package was not found
+
+        Examples
+        ----------
+        >>> from pyopendatato import ckanTO as ckanTO
+        >>> ct = ckanTO()
+        >>> ct.list_package_resources("e28bc818-43d5-43f7-b5d9-bdfb4eda5feb")
+        """
+
+        try:
+            package = self.remoteckan.action.package_show(id=package_id)
+        except ckanapi.CKANAPIError as error:
+            print(f"Encountered an error - {error}")
+            raise
+
+        resource_list = []
+        for resource in package["resources"]:
+            resource_list.append(
+                {k: (resource[k] if k in resource else "") for k in RESOURCE_INFO_COLS}
+            )
+
+        return pd.DataFrame(resource_list)
+
     def get_resource_metadata(self, resource_id):
         """
         This retrieves metadata about resources.
