@@ -67,7 +67,7 @@ ct.list_package_resources(package_id = <PACKAGE_ID>)
 
 ### Download Data
 
-Currently, `pyoepndatato` works for downloading csv, Excel (xlsx, xlsm, xls), shp, geojson, json, txt files, as well as any compressed folders containing the aforementioned file formats. The data is most often returned as a `pandas.DataFrame`, except in case of json and txt files.
+Currently, `pyoepndatato` works for downloading CSV, Excel (XLSX, XLSM, XLS), SHP, GEOJSON, JSON, TXT files, as well as any compressed folders containing the aforementioned file formats. The data is most often returned as a `pandas.DataFrame`, except in case of JSON and TXT files.
 
 Data is available at the resource level, so resource id is needed for downloading datasets:
 
