@@ -1,25 +1,3 @@
 id,title,topics,excerpt,formats,num_resources,refresh_rate,last_refreshed,notes
-c4052ff7-a09d-4eaf-84e6-6669519f413d,BodySafe,"City government,Health,Public safety",This dataset contains the Personal Service Settings (PSS) annual health inspection results in accordance to the Ministry of Health and Long-Term Care's Infection Prevention and Control Best Practices for Personal Services Settings.,"WEB,CSV,JSON,XML",2,Daily,2019-09-15T12:30:43.000633,"Starting July 1, 2013, under the revised [Municipal Code Chapter 545,
-Licensing By-Law](http://www.toronto.ca/legdocs/municode/1184_545.pdf), all
-establishments offering hairstyling or barbering services were required to get
-a PSS licence and post their inspection notices at or near the entrance of the
-business, so that it is clearly visible to the public. All these
-establishments are included on the BodySafe website. Establishments offering
-other services such as tattooing, micropigmentation, ear and body piercing,
-electrolysis, manicures, pedicures and aesthetics will be phased in over the
-next few years.
-
-Please note that the URLs below will extract the entire Bodysafe dataset which
-is large.  If you have issues downloading (e.g. timeouts) or if you want a
-subset of the data, please review the web service description in the Readme
-section.
-
-"
-1db34737-ffad-489d-a590-9171d500d453,Street Furniture - Transit Shelter,"City government,Culture and tourism,Locations and mapping,Transportation",Transit shelter location and asset type data for installations owned and maintained by Astral Media Outdoor under the City of Toronto's Coordinated Street Furniture Program.,"CSV,GEOJSON,GPKG,SHP",1,Semi-annually,2019-09-15T12:17:14.000983,"The City of Toronto entered into a 20-year contractual agreement with Astral
-Out-of-Home in 2007 for the installation and maintenance of up to 25,000
-street furniture elements including up to 6,000 transit shelters.  This
-program is a public-private partnership wherein Astral Out-of-Home
-manufactures, owns, cleans, and repairs all of their street furniture within
-the City of Toronto.
-
-"
+c4052ff7-a09d-4eaf-84e6-6669519f413d,BodySafe,"City government,Health,Public safety",This dataset contains the Personal Service Settings (PSS) annual health inspection results in accordance to the Ministry of Health and Long-Term Care's Infection Prevention and Control Best Practices for Personal Services Settings.,"WEB,CSV,JSON,XML",2,Daily,2019-09-15T12:30:43.000633,"Starting July 1, 2013, under the revised [Municipal Code Chapter 545, Licensing By-Law](http://www.toronto.ca/legdocs/municode/1184_545.pdf), all establishments offering hairstyling or barbering services were required to get PSS licence and post their inspection notices at or near the entrance of the business, so that it is clearly visible to the public. All these establishments are included on the BodySafe website. Establishments offering other services such as tattooing, micropigmentation, ear and body piercing, electrolysis, manicures, pedicures and aesthetics will be phased in over the next few years. Please note that the URLs below will extract the entire Bodysafe dataset which is large. If you have issues downloading (e.g. timeouts) or if you want a subset of the data, please review the web service description in the Readme section."
+1db34737-ffad-489d-a590-9171d500d453,Street Furniture - Transit Shelter,"City government,Culture and tourism,Locations and mapping,Transportation",Transit shelter location and asset type data for installations owned and maintained by Astral Media Outdoor under the City of Toronto's Coordinated Street Furniture Program.,"CSV,GEOJSON,GPKG,SHP",1,Semi-annually,2019-09-15T12:17:14.000983,"The City of Toronto entered into a 20-year contractual agreement with Astral Out-of-Home in 2007 for the installation and maintenance of up to 25,000 street furniture elements including up to 6,000 transit shelters.  This program is a public-private partnership wherein Astral Out-of-Home manufactures, owns, cleans, and repairs all of their street furniture within the City of Toronto."
