@@ -78,3 +78,5 @@ ct.get_resource(resource_id = <RESOURCE_ID>)
 ## Issues
 
 For any feedback or bug reports, please create an issue in the [Github repository](https://github.com/x249wang/pyopendatato).
+
+[![Build Status](https://travis-ci.org/x249wang/pyopendatato.svg?branch=master)](https://travis-ci.org/x249wang/pyopendatato)

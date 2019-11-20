@@ -5,12 +5,12 @@ python:
 before_install:
   - pip install -U pip
   - pip install -U pytest
+  - pip install pytest-cov
   - pip install codecov
 install:
   - pip install -r requirements.txt
   - pip install -r test-requirements.txt
-script: pytest
-env:
-  - CODEDCOV_TOKEN=2d39fe36-b456-408c-a6d4-ba3774aadb20
+script:
+  - py.test --cov-report=term --cov=pyopendatato tests/
 after_success:
   - codecov
