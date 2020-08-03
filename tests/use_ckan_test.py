@@ -22,8 +22,8 @@ def test_list_packages():
             open(os.path.join(FIXTURES_DIR, "package_list.json"), "r")
         )
 
-        c = ckanTO()
-        r = c.list_packages(limit=10)
+        with ckanTO() as c:
+            r = c.list_packages(limit=10)
 
         ref = pd.read_csv(os.path.join(FIXTURES_DIR, "package_list_cleaned.csv"))
 
