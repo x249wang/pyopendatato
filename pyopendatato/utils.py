@@ -190,9 +190,6 @@ def read_file_json(filepath):
     with open(filepath, "r") as in_file:
         data_json = json.load(in_file)
 
-    if len(data_json) == 1 and len(data_json[list(data_json.keys())[0]]) > 1:
-        data_json = data_json[list(data_json.keys())[1]]
-
     return data_json
 
 
